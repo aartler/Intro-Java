@@ -1,0 +1,31 @@
+package edu.cscc;
+import java.util.Scanner;
+import java.text.DecimalFormat;
+import java.lang.Math;
+
+//Ayla Artler this program calculates the tip percent based on cost of the meal.
+
+public class Main {
+    private static Scanner input = new Scanner(System.in);
+    private static DecimalFormat df2 = new DecimalFormat("#.##");
+
+    public static void main(String[] args) {
+        double mealCost, tip , tipPct;
+
+// ask for meal cost, initializes mealCost variable.
+        System.out.print("Enter cost of the meal: ");
+        mealCost = input.nextDouble();
+
+        while (mealCost > 0) {
+            // for loop initializes, asks if tipPct is more than 30, then adds 5.
+            for (tipPct = 10; tipPct < 30; tipPct = tipPct + 5) {
+                tip = mealCost * (tipPct/100);
+                System.out.println(Math.round(tipPct) + "% tip = $" + df2.format(tip));
+            }
+            // have to put system out for mealCost inside while loop , goes back to while loop
+            System.out.print("\nEnter cost of meal(negative number to quit): ");
+            mealCost = input.nextDouble();
+        }
+
+    }
+}
