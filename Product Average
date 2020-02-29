@@ -1,0 +1,38 @@
+package edu.cscc;
+import java.util.Scanner;
+
+//Ayla Artler Lab 7. This program is used to find the average cost of products that cost $100 or more.
+public class Main {
+
+    private static Scanner input = new Scanner(System.in);
+
+    public static void main(String[] args) {
+        String productName;
+        int count = 0;
+        double productCost, total=0, average;
+
+        System.out.println("Average products that cost $100.00 or more");
+        while(true)
+        {
+            // Customers will need to type stop to end the program and get the average of the products over $100.
+            System.out.print("Enter the  product ordered (type 'stop' to end): ");
+            productName=input.nextLine();
+            if (productName.equalsIgnoreCase ("stop"))
+                break;
+
+            System.out.print ("Enter the cost of the product ordered: ");
+            productCost=input.nextDouble();
+            input.nextLine();
+
+            //if statement looks for products over 100 adds them to the total and adds 1 to the counter.
+
+            if (productCost>=100) {
+                count++;
+                total= total+ productCost;
+            }
+        }
+        average = total / count;
+        System.out.println ("There were " + count + " item(s) that had a cost of $100.00 or more.");
+        System.out.println ("The average price of items entered with a cost of $100.00 or more is " + average);
+    }
+}
